@@ -26,22 +26,6 @@ export function checkNumberForError(value) {
     if (typeof value !== 'number') throw Error('value must be only number type');
 }
 
-export function checkStringForError(text) {
-    if (typeof text !== "string") throw Error('text must be of type string');
-}
-
-export function checkBothStringError(firstText, secondText) {
-    return (typeof firstText !== 'string' || typeof secondText !== 'string') ? true : false;
-}
-
-export function checkStrForUndefined(text) {
-    if (typeof text === 'undefined') throw Error('argument must be type of string');
-}
-
-export function checkParametersForError(firstText, secondText) {
-    if ((firstText === undefined || firstText === null)
-        (secondText === undefined || secondText === null)) throw Error('both parameters are required');
-}
 export function checkIsString(text) {
     if (typeof text !== "string") throw Error("argument must be type of string");
 }

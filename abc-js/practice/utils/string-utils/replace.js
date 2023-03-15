@@ -4,8 +4,8 @@
  * search: строка которое нужно поменять.
  * target: строка, на которую нужно поменять. */
 
-export function replace(str, searchValue, replaceValue) {
-
+ export function replace(str, searchValue, replaceValue) {
+    
 }
 /** Возвращает строку text, где все вхождения search поменяно на target.
  * text: строка, копию которой нужно получить.
