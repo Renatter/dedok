@@ -1,12 +1,13 @@
+import {checkIsString} from './common.js'
 import { len } from "./len.js";
 export function isEqual(firstText, secondText) {
-    if (typeof secondText !== 'string' || typeof firstText !== 'string') {
-        throw new Error("argument must be type of string")
-    }
+    checkIsString(firstText)
+    checkIsString(secondText)
+    let lenFirstText = len(firstText)
+    let lenSecondText = len(secondText)
+    if (lenFirstText !== lenSecondText) return false;
 
-    if (len(firstText) !== len(secondText)) return false;
-
-    for (let i = 0; i < len(firstText); i += 1) {
+    for (let i = 0; i < lenFirstText; i += 1) {
         if (firstText[i] !== secondText[i]) return false;
     }
     return true;
@@ -19,26 +20,20 @@ export function isNotEqual(firstText, secondText) {
 
 /** возвращает булевый ответ больше ли параметр firstText чем secondText. */
 export function isMore(firstText, secondText) {
-    if (typeof secondText !== 'string' || typeof firstText !== 'string') {
-        throw new Error("argument must be type of string")
-    }
+    let lenFirstText = len(firstText)
+    let lenSecondText = len(secondText)
 
-    const cycleLength = len(firstText)< len(secondText) ? len(secondText) : len(firstText);
+    const cycleLength = lenFirstText< lenSecondText ? lenSecondText : lenFirstText;
     for (let i = 0; i < cycleLength; i += 1) {
         if (firstText[i] > secondText[i]) return true;
         if (firstText[i] < secondText[i]) return false;
     }
-    return len(firstText) > len(secondText)? true : false;
+    return lenFirstText > lenSecondText? true : false;
 }
 
 /** возвращает булевый ответ меньше ли параметр firstText чем secondText. */
 export function isLess(firstText, secondText) {
-    if (typeof secondText !== 'string') {
-        throw new Error("argument must be type of string")
-    }
-    if (typeof firstText !== 'string') {
-        throw new Error("argument must be type of string")
-    }
+    
 
 
     return (!isMore(firstText, secondText) && !isEqual(firstText, secondText));
