@@ -25,19 +25,4 @@ export function replace(str, searchValue, replaceValue) {
  * text: строка, копию которой нужно получить.
  * search: строка которое нужно поменять.
  * target: строка, на которую нужно поменять. */
-export function replaceAll(text, search, target) {
-  checkIsString(text, " text");
-  checkIsString(search, " search");
-  checkIsString(target, " target");
-  let index = indexOf(text, search);
-
-  let lenSearch = len(search);
-  while (index !== -1) {
-    let firstText = substring(text, 0, index);
-    console.log("lenF:" + len(firstText));
-    let secondText = substring(text, index + lenSearch);
-    text = firstText + target + secondText;
-    index = indexOf(text, search, index + len(target));
-  }
-  return text;
-}
+export function replaceAll(text, search, target) {}
