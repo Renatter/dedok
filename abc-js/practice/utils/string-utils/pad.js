@@ -10,9 +10,9 @@ import { len } from "./len.js";
 export function padStart(text, maxLength, fillString = " ") {
   checkIsString(text, " text");
   checkIsString(fillString, " fillString");
-  let textLength = len(text);
-  let fillStringLength = len(fillString);
 
+  const textLength = len(text);
+  const fillStringLength = len(fillString);
   if (typeof maxLength === "undefined" || maxLength === null) {
     return text;
   }
@@ -23,13 +23,12 @@ export function padStart(text, maxLength, fillString = " ") {
     return text;
   }
 
-  maxLength = maxLength - textLength;
-  let parseRepeat = maxLength / fillStringLength;
-
-  if (maxLength > fillStringLength) {
-    fillString += repeat(fillString, floatToInt(parseRepeat));
+  let repeatLength = maxLength - textLength;
+  let parseRepeat = floatToInt(repeatLength / fillStringLength);
+  if (repeatLength > fillStringLength) {
+    fillString += repeat(fillString, parseRepeat);
   }
-  return slice(fillString, 0, maxLength) + text;
+  return slice(fillString, 0, repeatLength) + text;
 }
 
 /** Возвращает копию text увеличенный до длины maxLength
@@ -38,9 +37,9 @@ export function padStart(text, maxLength, fillString = " ") {
 export function padEnd(text, maxLength, fillString = " ") {
   checkIsString(text, " text");
   checkIsString(fillString, " fillString");
-  let textLength = len(text);
-  let fillStringLength = len(fillString);
 
+  const textLength = len(text);
+  const fillStringLength = len(fillString);
   if (typeof maxLength === "undefined" || maxLength === null) {
     return text;
   }
@@ -51,13 +50,12 @@ export function padEnd(text, maxLength, fillString = " ") {
     return text;
   }
 
-  maxLength = maxLength - text.length; //3
-  let pareseRepeat = maxLength / fillString.length; //3
-
-  if (maxLength > fillString.length) {
-    fillString += repeat(fillString, floatToInt(pareseRepeat));
+  let repeatLength = maxLength - textLength;
+  let parseRepeat = floatToInt(repeatLength / fillStringLength);
+  if (repeatLength > fillString.length) {
+    fillString += repeat(fillString, parseRepeat);
   }
-  return text + slice(fillString, 0, maxLength);
+  return text + slice(fillString, 0, repeatLength);
 }
 
 /** Возвращает копию text увеличенный до длины maxLength

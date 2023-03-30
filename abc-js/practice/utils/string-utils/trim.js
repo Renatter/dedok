@@ -24,7 +24,7 @@ export function trimStart(text, trimSymbols = TRIM_SYMBOLS) {
 export function trimEnd(text, trimSymbols = TRIM_SYMBOLS) {
   checkIsString(text, " text");
   checkIsString(trimSymbols, " trimSymbols");
-  var endIndex = len(text) - 1;
+  let endIndex = len(text) - 1;
 
   while (endIndex >= 0 && indexOf(trimSymbols, text[endIndex]) !== -1) {
     endIndex--;

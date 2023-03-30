@@ -14,8 +14,7 @@ export function slice(text, startIndex, finishIndex) {
   if (startIndex < 0 && finishIndex < 0) {
     startIndex = textLen + startIndex;
     finishIndex = textLen + finishIndex;
-  }
-  if (typeof finishIndex === "undefined" && startIndex < 0) {
+  } else if (typeof finishIndex === "undefined" && startIndex < 0) {
     startIndex = textLen + startIndex;
     finishIndex = textLen;
   }
