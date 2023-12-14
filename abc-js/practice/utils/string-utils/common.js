@@ -1,7 +1,7 @@
 /** для получения цифры строки по его индексу */
-export const DIGITS = '0123456789';
-export const SIGNS = '+-';
-export const FLOAT_DELIMITER = '.';
+export const DIGITS = "0123456789";
+export const SIGNS = "+-";
+export const FLOAT_DELIMITER = ".";
 
 export const ENG_UPPER_START = 65;
 export const ENG_UPPER_FINISH = 90;
@@ -17,15 +17,17 @@ export const RUS_CHAR_SHIFT = RUS_LOWER_START - RUS_UPPER_START;
 
 export const DIGIT_START = 48;
 export const DIGIT_FINISH = 57;
+export const COUNT_NUM = 32;
 
 // --------------- for tests ------------------
 export const complexText = "Hello world!!! It's terminator";
 
 export const ZERO_CODE_CHAR = String.fromCharCode(0);
 export function checkNumberForError(value) {
-    if (typeof value !== 'number') throw Error('value must be only number type');
+  if (typeof value !== "number") throw Error("value must be only number type");
 }
 
-export function checkIsString(text) {
-    if (typeof text !== "string") throw Error("argument must be type of string");
+export function checkIsString(text, arg = "") {
+  if (typeof text !== "string")
+    throw Error(`argument${arg} must be type of string`);
 }
